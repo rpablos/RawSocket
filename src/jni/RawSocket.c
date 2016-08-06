@@ -270,9 +270,9 @@ JNIEXPORT jint JNICALL Java_net_RawSocket__1select
             if (exceptmaskarray) exceptmaskarray[i] = FD_ISSET(descriptorsarray[i],&eset);
         }
     (*env)->ReleaseIntArrayElements(env,descriptors,descriptorsarray,JNI_ABORT);
-    if (readmaskarray) (*env)->ReleaseBooleanArrayElements(env,readmask,readmaskarray,JNI_ABORT);
-    if (writemaskarray) (*env)->ReleaseBooleanArrayElements(env,writemask,writemaskarray,JNI_ABORT);
-    if (exceptmaskarray) (*env)->ReleaseBooleanArrayElements(env,exceptmask,exceptmaskarray,JNI_ABORT);
+    if (readmaskarray) (*env)->ReleaseBooleanArrayElements(env,readmask,readmaskarray,0);
+    if (writemaskarray) (*env)->ReleaseBooleanArrayElements(env,writemask,writemaskarray,0);
+    if (exceptmaskarray) (*env)->ReleaseBooleanArrayElements(env,exceptmask,exceptmaskarray,0);
     return result;
 }
 
